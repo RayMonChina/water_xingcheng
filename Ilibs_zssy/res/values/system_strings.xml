@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 按钮按下色 -->
+    <color name="btn_down">#00c0ff</color>
+
+    <string name="data_request_ing">数据请求中...</string>
+    <string name="data_request_err">数据请求失败</string>
+    <string name="no_network">网络不通或服务器正忙</string>
+    <string name="single_choice">单选</string>
+    <string name="multiple_choice">多选</string>
+    <!-- 更新 -->
+    <string name="manually_update">手动更新</string>
+    <string name="no_update">不更新</string>
+    <string name="found_newver">发现新版本，是否更新？</string>
+    <string name="sys_update">系统更新</string>
+    <string name="update">系统更新中.....</string>
+    <string name="update_downerror">下载异常，未能自动更新!</string>
+    <string name="file_downerror">下载异常</string>
+    <string name="update_progress">进度： </string>
+    <string name="update_speed">速度： </string>
+    <string name="update_oddhour">小时</string>
+    <string name="update_oddminute">分钟</string>
+    <string name="update_oddsecond">秒</string>
+    <string name="update_oddtime">剩余时间：</string>
+    <string name="update_nosdcard">没有SD卡无法更新，系统将直接进入主界面!</string>
+    <string name="no_sdacard">系统没有找到SD卡，无法下载文件！</string>
+    <string name="update_syserror">程序出错，无法重新安装程序！</string>
+    <string name="update_filesizeunknow">无法获知文件大小 ,FileSize: </string>
+    <string name="update_streamnull">stream is null</string>
+    <string name="file_downloading">文件下载中....</string>
+    <string name="sdcard_available">SD卡空间不足！</string>
+    <string name="download_fileexist">文件已存在,直接打开！</string>
+    <string name="download_badrequest">请求有语法错误，不能被服务器所理解！</string>
+    <string name="download_unauthorized">请求未经授权！</string>
+    <string name="download_forbidden">服务器收到请求，但是拒绝提供服务！</string>
+    <string name="download_notFound">请求资源不存在,确认地址正确！</string>
+    <string name="download_inernalerror">服务器发生不可预期的错误！</string>
+    <string name="download_serverunavailable">服务器当前不能处理客户端的请求,请稍后重试！</string>
+    <string name="download_errorunkonw">未知下载异常。</string>
+    <string name="download_retry">重试</string>
+    <string name="connecting">连接中.....</string>
+    <string name="base_basedao_dialogmessage">数据请求中...</string>
+    <string name="base_basedao_datarequesterror">数据请求失败</string>
+    <string name="base_basedao_responseerr">网络不通或服务器正忙</string>
+    <!-- 更新end -->
+
+    <string name="invert">反选</string>
+    <string name="quit">放弃</string>
+    <string name="clear">清空</string>
+    <string name="setup">设置</string>
+    <string name="about">关于</string>
+    <string name="ok">确认</string>
+    <string name="cancel">取消</string>
+    <string name="development">此功能开发中.....</string>
+    <string name="noisnull">不能为空</string>
+    <string name="add">新增</string>
+    <string name="province">省</string>
+    <string name="city">地级市</string>
+    <string name="district">区县</string>
+    <string name="resident_street">街道(乡、镇)</string>
+    <string name="cun">居委(村)</string>
+    <string name="resident_road">道路(组)</string>
+    <string name="detail_address">详细地址</string>
+    <string name="homepage">主页</string>
+    <string name="name">姓名</string>
+    <string name="birthday">出生日期</string>
+    <string name="jz_address">居住地址</string>
+    <string name="family_address">家庭地址</string>
+    <string name="address">地址</string>
+    <string name="login_title">用户登录</string>
+    <string name="login_name">用户名</string>
+    <string name="login_pwd">密码</string>
+    <string name="chk_name">用户名不能为空</string>
+    <string name="chk_pwd">密码不能为空</string>
+    <string name="logining">正 在 登 录...</string>
+    <string name="login">登录</string>
+    <string name="exit">退出</string>
+    <string name="remember">记住密码</string>
+    <string name="Off_login">离线登录</string>
+    <string name="return_row_num">返回行数</string>
+    <string name="search">查询</string>
+    <string name="info">详 细</string>
+    <string name="street">街道</string>
+    <string name="close">关闭</string>
+    <string name="handle">操作</string>
+    <string name="find">查看</string>
+    <string name="delete">删除</string>
+    <string name="save">保存</string>
+    <string name="certain">确定</string>
+    <string name="yes">是</string>
+    <string name="no">否</string>
+    <string name="nothing">无</string>
+    <string name="comm_query">快捷查询</string>
+    <string name="query">查找</string>
+    <string name="del_ok">删除成功</string>
+    <string name="del_err">删除失败</string>
+    <string name="insert_ok">新增成功</string>
+    <string name="insert_err">新增失败</string>
+    <string name="sel_ok">查询成功</string>
+    <string name="sel_err">没有查到符合条件的数据</string>
+    <string name="update_ok">更新成功</string>
+    <string name="update_err">更新失败</string>
+
+</resources>

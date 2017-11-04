@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="#F0F0F0"
+        android:orientation="vertical"
+        android:padding="10dp" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                style="@style/pc_item_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="预约医院:" />
+
+            <TextView
+                android:id="@+id/tv_locate"
+                style="@style/pc_item_text"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/pc_yuyue_tx"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                style="@style/pc_item_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="预约编号:" />
+
+            <TextView
+                android:id="@+id/pc_yuyue_no"
+                style="@style/pc_item_text"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/pc_item_text"
+                style="@style/pc_item_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="预约科室:"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/pc_yuyue_room_or_person"
+                style="@style/pc_item_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                style="@style/pc_item_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="预约时间:"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/pc_yuyue_time"
+                style="@style/pc_item_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                style="@style/pc_item_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="    就诊人:"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/pc_pat_name"
+                style="@style/pc_item_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                style="@style/pc_item_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="预约结果:"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/pc_yuyue_result"
+                style="@style/pc_item_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/tv_quiet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cancelregister_bg"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                android:text="取消预约 " />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

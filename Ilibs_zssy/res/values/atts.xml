@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="Components">
+
+        <!-- (公共;必选)文本框内容 -->
+        <attr name="text" format="string" />
+
+        <!-- (公共;必选)必须有这个参数 第二个控件类型0是输入框 1是复选框 2是单选框 -->
+        <attr name="type" format="integer" />
+
+        <!-- (公共)文本颜色 包括文本框和输入框 默认黑色 -->
+        <attr name="textColor" format="color" />
+
+        <!-- (公共)整个控件在占屏幕宽度的百分比 满宽度是100 默认是50 -->
+        <attr name="weight" format="integer" />
+
+        <!-- (公共)输入框占整个控件宽度的百分比 满宽度是100 默认是60 剩下的权重是文本框的权重 -->
+        <attr name="inputWeight" format="integer" />
+
+        <!-- (公共)为true时文本框在输入框后面 -->
+        <attr name="reverse" format="boolean" />
+        
+        <!-- 输入框的背景 -->
+        <attr name="inputBackground" format="reference" />
+        
+         <!--  (type=0时候有效)输入过渡的正则表达式 -->
+        <attr name="inputFilerReg" format="string" />
+        
+        <!-- (type=0时候有效)输入框最大字数 -->
+        <attr name="maxLength" format="integer" />
+        
+        <!-- (type=0时候有效)要验证的正则表达式 -->
+        <attr name="regular" format="string" />
+
+        <!-- (必选 type=1 type=2时候有效)下拉框内容 -->
+        <attr name="address" format="integer" />
+
+        <!-- (必选 type=1时候有效) 复选框多个内容之间的分隔符 -->
+        <attr name="separator" format="string" />
+
+        <!-- (type=1 type=2时候有效) 复选框单选框标题 -->
+        <attr name="title" format="string" />
+
+        <!-- (type=1 type=2时候有效) 排序类型 0为按拼音排序 1为按照ID排序 默认为0 -->
+        <attr name="sortType" format="integer" />
+        
+         <!-- 检查是否为空 -->
+        <attr name="checkEmpty" format="boolean" />
+     
+        <!-- 特殊的验证 -->
+        <attr name="check" format="string" />
+        
+        <!-- 输入最小数 -->
+        <attr name="minNum" format="integer" />
+        
+        <!-- 输入最大数 -->
+        <attr name="maxNum" format="integer" />
+        
+         <!-- 输入的监听类型 -->
+        <attr name="listenerType" format="integer" />
+        
+           <!-- 输入的监听类型 -->
+        <attr name="numeric" format="string" />
+        
+        <!-- 输入的类型  -->
+        <attr name="inputType" format="string" />
+        
+        <!-- 高度自动变化 -->
+         <attr name="autoHeight" format="integer" />
+         
+         <!-- true:开启设置间距  false:关闭设置间距-->
+        <attr name="isSpace" format="boolean" />
+        <!-- 设置间距-->
+        <attr name="space" format="integer" />
+    </declare-styleable>
+    
+    <declare-styleable name="MyEditText">
+       <attr format="boolean" name="isPrompt" />
+       <attr format="string" name="mark" />
+       
+    </declare-styleable>
+
+</resources>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white"
+    android:orientation="vertical" 
+    android:focusableInTouchMode="true"
+    >
+
+    <com.ideal2.components.MyTextView
+        android:id="@+id/text_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:text="@string/multiple_choice"
+        android:textColor="@color/black" 
+        android:textSize="16dip"
+        android:padding="8dip"
+        />
+    <LinearLayout
+        android:id="@+id/layout_search"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+	    <com.ideal2.components.MyEditText
+	        android:id="@+id/text_search"
+	        android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:layout_weight="1"
+        	style="@style/dialog_text"
+        	android:singleLine="true"
+	        />
+	    <com.ideal2.components.MyButton
+            android:id="@+id/btn_search"
+            android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+            style="@style/dialog_button"
+            android:text="@string/search" />
+    </LinearLayout>
+    
+    <com.ideal2.components.MyListView
+        android:id="@+id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <com.ideal2.components.MyButton
+            android:id="@+id/btn_invert"
+            style="@style/dialog_button"
+            android:layout_weight="1"
+            android:text="@string/invert" />
+
+        <com.ideal2.components.MyButton
+            android:id="@+id/btn_clear"
+            style="@style/dialog_button"
+            android:layout_weight="1"
+            android:text="@string/clear" />
+
+        <com.ideal2.components.MyButton
+            android:id="@+id/btn_ok"
+            style="@style/dialog_button"
+            android:layout_weight="1"
+            android:text="@string/ok" />
+    </LinearLayout>
+
+</LinearLayout>

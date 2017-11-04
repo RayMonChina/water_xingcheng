@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:ideal="http://schemas.android.com/apk/res/com.ideal2.demo"
+    style="@style/linearlayout"
+ 
+     >
+    
+    <com.ideal2.components.MyMultipleChoice
+        android:id="@+id/mymultipple"
+        style="@style/my_text"
+  		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:text="多选"
+    />
+    
+      <com.ideal2.components.MyDate
+        android:id="@+id/mydate"
+        style="@style/my_text"
+  		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:text="日期"
+    />
+       <com.ideal2.components.MyDate
+        android:id="@+id/mydate2"
+        style="@style/my_text"
+  		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:text="日期"
+    />
+    
+    <Button 
+        android:id="@+id/btn"
+        style="@style/button"
+       	android:text="activity跳转"
+        />
+    
+    <com.ideal2.components.MyListView 
+        android:id="@+id/list"
+        android:layout_width="fill_parent"
+		android:layout_height="wrap_content"        
+        />
+    
+
+</LinearLayout>

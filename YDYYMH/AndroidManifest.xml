@@ -1,0 +1,562 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.jijiang.wtapp"
+    android:versionCode="23"
+    android:versionName="2.0.14" >
+
+    <uses-sdk
+        android:minSdkVersion="15"
+        android:targetSdkVersion="17" />
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:resizeable="true" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.NFC" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
+    <!-- 在SDCard中创建与删除文件权限 -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <!-- 往SDCard写入数据权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 短信拦截 -->
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <!-- 震动 -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <!-- 照相机 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- map begin -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" >
+    </uses-permission>
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- SDK1.5需要android.permission.GET_TASKS权限判断本程序是否为当前运行的应用? -->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <!-- 这个权限用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" >
+    </uses-permission>
+    <!-- 这个权限用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" >
+    </uses-permission>
+    <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" >
+    </uses-permission>
+    <!-- 获取运营商信息，用于支持提供运营商信息相关的接口 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" >
+    </uses-permission>
+    <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" >
+    </uses-permission>
+    <!-- 用于读取手机当前的状态 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" >
+    </uses-permission>
+    <!-- 写入扩展存储，向扩展卡写入数据，用于写入离线定位数据 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" >
+    </uses-permission>
+    <!-- 访问网络，网络定位需要上网 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- SD卡读取权限，用户写入离线定位数据 -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" >
+    </uses-permission>
+    <!-- 允许应用读取低级别的系统日志文件 -->
+    <uses-permission android:name="android.permission.READ_LOGS" >
+    </uses-permission>
+    <!-- map end -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" >
+    </uses-permission>
+
+    <application
+        android:name="com.ideal.zsyy.activity.ZsyyApplication"
+        android:allowBackup="true"
+        android:enabled="true"
+        android:hardwareAccelerated="false"
+        android:icon="@drawable/w_logo"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.Light.NoTitleBar" >
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="f6nIN3MBi6aLvGeXgGGVmwP29MUbqxC9" />
+
+        <activity
+            android:name="com.ideal.zsyy.activity.SplashActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.HospitalListActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.MainActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.NavigationActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
+        <activity
+            android:name="com.ideal.zsyy.activity.PoiSearchActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
+        <activity
+            android:name="com.ideal.zsyy.activity.HospitalDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ideal.zsyy.activity.HospitalNavigationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ideal.zsyy.activity.HospitalFloorActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ideal.zsyy.activity.ReportListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ideal.zsyy.activity.PersonalCenterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ideal.zsyy.activity.PhDeptInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ideal.zsyy.activity.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ideal.zsyy.activity.TestActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ideal.zsyy.activity.EditPersonInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ideal.zsyy.activity.DeptInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ideal.zsyy.activity.PhDoctorInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ideal.zsyy.activity.DoctorInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ideal.zsyy.activity.RegisterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ideal.zsyy.activity.OrderRegisterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ideal.zsyy.activity.HealthInformationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ideal.zsyy.activity.HealthInfoDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ideal.zsyy.activity.SettingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ideal.zsyy.activity.CardExplainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ideal.zsyy.activity.SkinChangerActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.PhJHQueueVisitActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.TbReportlistActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.TbReportDetailActivity"
+            android:screenOrientation="landscape" >
+            <intent-filter>
+                <action android:name="com.ideal.zsyy.activity.TbReportDetailActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.StillMoreActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.PhFeedBackActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.CityInfoActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.OrderRegister1Activity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.OrderRegister2Activity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.OrderDeptInfoActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.NotesForRegistrationActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.ConfimAppointmentActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.OrderDeptInfoDutyActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.RegsiterProvisionActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.WizardInterfaceActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.MZSMActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.CommonlyPatientEditActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.CommonlyPatientChangeActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.CommonlyPatientListActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.OrderDoctorInfoActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.OrderDeptInfoDuty1Activity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.CyContactYYListActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.DeptInfoFloorPicActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.FullScreenPicActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.VideoPlayerActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- 诊疗信息查询 -->
+        <activity
+            android:name="com.ideal.zsyy.activity.ZlSearchActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.DayFeeActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.YuyueTipActivity"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="com.ideal.zsyy.activity.YuyueTipActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.OperationTipActivity"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="com.ideal.zsyy.activity.OperationTipActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!-- 诊疗 门诊 -->
+        <activity
+            android:name="com.ideal.zsyy.activity.Zl_menzhenActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- 住院费用提醒 -->
+        <activity
+            android:name="com.ideal.zsyy.activity.ZhuyuanFeeActivity"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="com.ideal.zsyy.activity.ZhuyuanFeeActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!-- 检查排队提醒 -->
+        <activity
+            android:name="com.ideal.zsyy.activity.CheckRangeActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- 检查预约提醒 -->
+        <activity
+            android:name="com.ideal.zsyy.activity.CheckOrderActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- 术后康复提醒 -->
+        <activity
+            android:name="com.ideal.zsyy.activity.OperationRecureActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- 回访查询 -->
+        <activity
+            android:name="com.ideal.zsyy.activity.BackVisitActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- 回访回复 -->
+        <activity
+            android:name="com.ideal.zsyy.activity.BackVisitEditActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- 回访详情 -->
+        <activity
+            android:name="com.ideal.zsyy.activity.BackVisitDisActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- 在线咨询 -->
+        <activity
+            android:name="com.ideal.zsyy.activity.DoctorChatActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- 诊疗住院 -->
+        <activity
+            android:name="com.ideal.zsyy.activity.Zl_HosActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.MainMenuActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.WAnalysisActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.WFaultReportActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.WCustomAdviceActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.WDownloadDataActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.WUploadDataActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.WalkPathActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.WSystemSettingActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.WCBMainActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.WCBChargeFeeActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.WCBRealActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.DoctorChatDetailActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" >
+        </activity>
+        <!-- Select Photo -->
+        <activity
+            android:name="com.ideal.zsyy.activity.ImageGridActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.TestPicActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ideal.zsyy.activity.PhotoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ideal.zsyy.activity.WCBSearchNewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ideal.zsyy.activity.WNFCTagActivity"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.nfc.action.TECH_DISCOVERED" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.nfc.action.TECH_DISCOVERED"
+                android:resource="@xml/nfc_tech_filter" />
+
+            <intent-filter>
+                <action android:name="android.nfc.action.TAG_DISCOVERED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.WCBRealNewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ideal.zsyy.activity.AlbumActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.ImageFile"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.ShowAllPhoto"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.GalleryActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.WCustomerSearchActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.WCBWeiChaoActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.WCBInOrderActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.WCBSearchResultActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.WCBoticeAtivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.AdviceListActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.WCBHistoryActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.WQianfeiActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.WQianfeiResultActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.WQianfeiHistoryActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+         <activity
+            android:name="com.ideal.zsyy.activity.WQianfeiHistoryResultActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        
+
+        <receiver
+            android:name="com.ideal.zsyy.receiver.AppStartReceiver"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" >
+        </service>
+        <service
+            android:name="com.ideal.zsyy.service.LocationService"
+            android:enabled="true" >
+        </service>
+        <service
+            android:name="com.ideal.zsyy.service.TickService"
+            android:enabled="true" >
+        </service>
+        <!--
+        <receiver android:name="com.ideal.zsyy.receiver.TickReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.TIME_TICK"/>
+            </intent-filter>
+        </receiver>
+        -->
+
+<!--         <receiver android:name="com.ideal.zsyy.receiver.SmsReceiver" > -->
+<!--             <intent-filter android:priority="1000" > -->
+<!--                 <action android:name="android.provider.Telephony.SMS_RECEIVED" /> -->
+
+<!--                 <category android:name="android.intent.category.DEFAULT" /> -->
+<!--             </intent-filter> -->
+<!--         </receiver> -->
+    </application>
+
+</manifest>

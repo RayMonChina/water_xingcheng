@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+
+    
+     <style name="my_text">
+        <item name="separator">|</item>
+        <item name="sortType">0</item>
+        <item name="title"></item>
+        <item name="type">0</item>
+        <item name="android:layout_margin">5dip</item>
+    </style>
+    
+    <style name="linearlayout" parent="@android:style/Widget.GridView">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:background">#395419</item>
+        <item name="android:focusableInTouchMode">true</item>
+    </style>
+
+    <style name="title" parent="@android:style/Widget.TextView">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">18dip</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:background">#999999</item>
+    </style>
+
+    <style name="text" parent="@android:style/Widget.EditText">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">26sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:background">@color/bisque</item>
+    </style>
+
+    <style name="button" parent="@android:style/Widget.Button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+	
+    <style name="Theme.blooddialog" parent="@android:style/Theme.Dialog">
+         <item name="android:textColor">#00FF00</item>
+        <item name="android:typeface">monospace</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+    	<item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+ <!-- 半透明 -->
+
+        <item name="android:textSize">20sp</item>
+        <item name="android:background">@color/transparent</item>
+        <item name="android:windowBackground">@color/black</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@+android:style/Animation.Translucent</item>
+    </style>
+    
+        
+    <style name="Theme" parent="android:Theme">  
+  
+        <item name="android:windowAnimationStyle">@style/Animation</item>  
+  
+    </style>  
+    <style name="Animation">  
+  
+        <item name="android:activityOpenEnterAnimation">@null</item>  
+  
+        <item name="android:activityOpenExitAnimation">@null</item>  
+  
+        <item name="android:activityCloseEnterAnimation">@null</item>  
+  
+        <item name="android:activityCloseExitAnimation">@null</item>  
+  
+        <item name="android:taskOpenEnterAnimation">@null</item>  
+  
+        <item name="android:taskOpenExitAnimation">@null</item>  
+  
+        <item name="android:taskCloseEnterAnimation">@null</item>  
+  
+        <item name="android:taskCloseExitAnimation">@null</item>  
+  
+        <item name="android:taskToFrontEnterAnimation">@null</item>  
+  
+        <item name="android:taskToFrontExitAnimation">@null</item>  
+  
+        <item name="android:taskToBackEnterAnimation">@null</item>  
+  
+        <item name="android:taskToBackExitAnimation">@null</item>  
+  
+    </style>  
+</resources>

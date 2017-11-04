@@ -1,0 +1,21 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="updatebar_height">62.0dip</dimen>
+    <dimen name="updatebar_content_height">60.0dip</dimen>
+    <dimen name="updatebar_padding">10.0dip</dimen>
+    <dimen name="main_hn_heigh">80dp</dimen>
+    <dimen name="health_resource_hospital_width">70dp</dimen>
+    <dimen name="health_resource_hospital_heigh">70dp</dimen>
+    <dimen name="mian_pic_radius">30dp</dimen>
+    <dimen name="mian_pic_textsize">15sp</dimen>
+    <dimen name="title_width">190dp</dimen>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="ui_10_dip">10dip</dimen>
+
+</resources>

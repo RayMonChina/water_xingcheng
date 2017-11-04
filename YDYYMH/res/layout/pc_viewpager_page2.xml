@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F9F9F9"
+    android:orientation="vertical" >
+
+    <ListView
+        android:id="@+id/lv_pc_cancel"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:cacheColorHint="#00000000"
+        android:divider="@null"
+        android:dividerHeight="15dp"
+        android:listSelector="@drawable/my_list_selector"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp" />
+
+    <Button
+        android:id="@+id/bt_pc_yuyue"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/selector_bt_search_yy_info"
+        android:text="我给其他人的预约"
+        android:textColor="@color/white" />
+
+</LinearLayout>

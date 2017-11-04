@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dip"
+    android:background="@drawable/topbj"
+    android:orientation="vertical" > 
+    
+    <EditText
+            android:id="@+id/et_query_doctor"
+            android:layout_width="fill_parent"
+            android:layout_height="34dip"
+            android:layout_marginLeft="8dip"
+            android:layout_marginRight="8dip"
+            android:layout_marginTop="8dip"
+            android:background="@drawable/dept_search"
+            android:drawableLeft="@drawable/fdj"
+            android:gravity="center_vertical"
+            android:hint="@string/querydoctorhint"
+            android:paddingLeft="5dip"
+            android:singleLine="true"
+            android:textSize="18sp" />
+
+</LinearLayout>

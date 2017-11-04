@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/linearlayout" >
+
+    <TextView
+      	style="@style/title"
+        android:text="第一页" 
+       
+        />
+    <Button 
+        android:id="@+id/btn"
+        style="@style/button"
+       	android:text="activity跳转"
+        />
+
+</LinearLayout>

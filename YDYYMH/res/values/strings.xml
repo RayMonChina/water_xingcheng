@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">抄表系统</string>
+    <string name="app_name1">掌上市一</string>
+     <string name="company_name">版 权 所 有 © 喀 左 县 自 来 水 公 司</string>
+    <string name="title">上海市第一人民医院</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="querydept">科室列表</string>
+    <string name="query">请输入要查询的科室</string>
+    <string name="synopsis">简介 </string>
+    <string name="doctor">医生 </string>
+    <string name="paiban">排班</string>
+    <string name="querydoctor">医生列表</string>
+    <string name="querydoctorhint">搜索 医生姓名、特长...</string>
+    <string name="depttime">预约时间</string>
+    <string name="bespoke">预约</string>
+    <string name="expertin">擅长</string>
+    <string name="orderregister">预约挂号</string>
+    <string name="orderspecialist">挂专家号</string>
+    <string name="ptregister">普通挂号</string>
+    <string name="xzdept">选择科室</string>
+    <string name="specialist">专家列表</string>
+    <string name="commondept">临床科室</string>
+    <string name="featuredept">特色科室</string>
+    <string name="ordertext1">预约挂号须知</string>
+    <string name="ordertext2">1.预约成功后, 请按时就诊。就诊日携预约后收到的短信及上海市医保卡或医联就诊卡，门诊病历及相关病史资料前来就诊。如果是医院一站式服务用户，请至一站式自助机办理缴费即可，其余用户，请至挂号窗口办理。</string>
+    <string name="ordertext3">2.一个账号一天最多只能约两个号。</string>
+    <string name="ordertext4">3.若您因特殊情况不能按时就诊，请至少提前一日16点之前通过手机终端取消预约，否则将视为违约。如您未按约定前来取号，本次预约失效，违约两次将列黑名单，半年后方可重新预约。</string>
+    <string name="ordertext5">4.若要改期或改换专家，请先取消当前预约并重新预约。</string>
+    <string name="ordertext6">5.若教授因故停诊，我们将给您安排同等资历的专家代诊或改期。</string>
+    <string name="ordertext7">6.请保持联系电话的畅通，有专家变动等情况我们将及时与您联系。</string>
+    <string name="ordertext8">7.预约成功后请认真核对预约信息。</string>
+    <string name="ordertext9">8.本确认单最终解释权归上海市第一人民医院所有。</string>
+    <string name="health_information">健康学校</string>
+    
+    <string name="drop_dowm">下拉可以刷新</string>
+    <string name="release_update">松开可以刷新</string>
+    <string name="loading">正在加载   </string>
+    <string name="seen_more">更多</string>
+    
+     <string name="year">年</string>
+    <string name="month">月</string>
+    <string name="date">日</string>
+    <string name="monday">一</string>
+    <string name="tuesday">二</string>
+    <string name="thursday">三</string>
+    <string name="wednesday">四</string>
+    <string name="friday">五</string>
+    <string name="saturday">六</string>
+    <string name="sunday">日</string>
+	<string name="id_card_digits">0123456789x </string>  
+    <string name="login_setting">系统设置</string>
+    <string name="main_page">首页</string>
+    <string name="main_yhcx">用户查询</string>
+    <string name="main_fjyh">附近用户</string>
+    <string name="main_cb">抄表</string>
+     <!-- 图片浏览 -->
+    <string name="only_choose_num">超出可选图片张数</string>
+    <string name="finish">完成</string>
+    <string name="invalidSD">sdcard无效或没有插入！</string>
+    <string name="photo">选择相册</string>
+    <string name="album">相册</string>
+    <string name="preview">预览</string>
+    <string name="unfinished">完成</string> 
+    <string name="camera_cancel">取消</string>
+    <string name="no_photo">相册没有图片</string>
+    
+    <string name="login">登录</string>
+    <string name="password">密码</string>
+    <string name="username">用户名</string>
+    <string name="ip">服务器地址</string>
+    <string name="ip_wrongful">请输入合法的地址！</string>
+    <string name="back">返回</string>
+    <string name="input_ip">请输入服务器地址</string>
+    <string name="ip_exception">服务器地址访问异常，请确认输入的地址正确！</string>
+    <string name="tip_nfc_notfound">no nfc hardware!</string>
+	<string name="tip_nfc_disabled">nfc disabled</string>
+	<string name="tip_nfc_enabled">nfc enabled</string>	
+</resources>

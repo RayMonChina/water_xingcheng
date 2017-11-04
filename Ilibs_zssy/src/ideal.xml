@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ideal-app>
+	<ideal-xml>
+		<xml-name>idealConfigLocation</xml-name>
+		<!--xml-type :`1 属于basedao配置  -->
+		<xml-type>cfg</xml-type>
+		<xml-url>ideal.cfg.xml</xml-url>
+	</ideal-xml>
+</ideal-app>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_pop_bj"
+    android:layout_width="100dp"
+    android:layout_height="wrap_content"
+    android:background="#000000"
+    android:orientation="vertical"
+    android:paddingLeft="2dp"
+    android:paddingRight="2dp" >
+
+   <ListView 
+       android:id="@+id/lv_dates"
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+       android:scrollingCache="false"
+       android:cacheColorHint="@color/transparent"
+       android:scrollbars="none">
+       
+   </ListView>
+
+</LinearLayout>

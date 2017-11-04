@@ -351,6 +351,8 @@ public class WdbManager {
 			retItem.setOrGpsTag(cursor.getInt(cursor.getColumnIndex("OrGpsTag")));
 			retItem.setIsPrint(cursor.getInt(cursor.getColumnIndex("IsPrint")));
 			retItem.setPreMoney(cursor.getDouble(cursor.getColumnIndex("PreMoney")));
+			retItem.setReceiptIO(cursor.getString(cursor.getColumnIndex("ReceiptIO")));
+			retItem.setChargeID(cursor.getString(cursor.getColumnIndex("chargeID")));
 		}
 		return retItem;
 	}
@@ -408,6 +410,8 @@ public class WdbManager {
 			retItem.setWaterUserTypeId(cursor.getString(cursor.getColumnIndex("waterUserTypeId")));
 			retItem.setMemo1(cursor.getString(cursor.getColumnIndex("Memo1")));
 			retItem.setPreMoney(cursor.getDouble(cursor.getColumnIndex("PreMoney")));
+			retItem.setReceiptIO(cursor.getString(cursor.getColumnIndex("ReceiptIO")));
+			retItem.setChargeID(cursor.getString(cursor.getColumnIndex("chargeID")));
 		}
 		return retItem;
 	}
@@ -466,6 +470,8 @@ public class WdbManager {
 			retItem.setWaterUserTypeId(cursor.getString(cursor.getColumnIndex("waterUserTypeId")));
 			retItem.setMemo1(cursor.getString(cursor.getColumnIndex("Memo1")));
 			retItem.setPreMoney(cursor.getDouble(cursor.getColumnIndex("PreMoney")));
+			retItem.setReceiptIO(cursor.getString(cursor.getColumnIndex("ReceiptIO")));
+			retItem.setChargeID(cursor.getString(cursor.getColumnIndex("chargeID")));
 		}
 		return retItem;
 	}
@@ -548,6 +554,8 @@ public class WdbManager {
 			retItem.setWaterUserTypeId(cursor.getString(cursor.getColumnIndex("waterUserTypeId")));
 			retItem.setMemo1(cursor.getString(cursor.getColumnIndex("Memo1")));
 			retItem.setPreMoney(cursor.getDouble(cursor.getColumnIndex("PreMoney")));
+			retItem.setReceiptIO(cursor.getString(cursor.getColumnIndex("ReceiptIO")));
+			retItem.setChargeID(cursor.getString(cursor.getColumnIndex("chargeID")));
 		}
 		return retItem;
 	}
@@ -1085,6 +1093,8 @@ public class WdbManager {
 				cValues.put("waterUserTypeId", item.getPriceType());
 				cValues.put("Memo1", item.getMemo1());
 				cValues.put("PreMoney", item.getPreMoney());
+				cValues.put("ReceiptIO", item.getReceiptIO());
+				cValues.put("chargeID", item.getChargeID());
 				db.insert("TB_UserInfo", "UserNo", cValues);
 			}
 			db.setTransactionSuccessful();
@@ -1156,6 +1166,8 @@ public class WdbManager {
 				cValues.put("waterUserchargeType", item.getWaterUserchargeType());
 				cValues.put("waterUserTypeId", item.getPriceType());
 				cValues.put("Memo1", item.getMemo1());
+				cValues.put("ReceiptIO",item.getReceiptIO());
+				cValues.put("chargeID", item.getChargeID());
 				//cValues.put("PreMoney", item.getPreMoney());
 				db.update("TB_UserInfo", cValues, " readMeterRecordId=?",
 						new String[] { String.valueOf(item.getReadMeterRecordId()) });

@@ -10,14 +10,14 @@ using System.Text;
 using MeterAPPServer.Models.Response;
 using MeterAPPServer.Models.Request;
 using MeterAPPServer.Models.Entity;
-
+using MeterAPPServer.DAL;
 
 namespace TestAndroid.DAL
 {
-    public class CbSystemDAL : BaseDAL
+    public partial class CbSystemDAL : BaseDAL
     {
         // private string chargeID = string.Empty;
-
+        private ChargeDAL chargeDal = new ChargeDAL();
         /// <summary>
         ///  RONG
         ///  2016-5-2
@@ -226,8 +226,9 @@ namespace TestAndroid.DAL
                                 waterusertypename as PriceTypeName,
                                 WATERMETERNUMBERCHANGESTATE,
                                 waterUserchargeType,
-                                Memo1,(SELECT TOP 1 prestore FROM waterUser WHERE waterUserNO=readMeterRecord.waterUserNO) AS PreMoney
-                                 FROM readMeterRecord WHERE loginId=@loginid
+                                Memo1,(SELECT TOP 1 prestore FROM waterUser WHERE waterUserNO=readMeterRecord.waterUserNO) AS PreMoney,
+                                (select top 1 RECEIPTNO from WATERFEECHARGE c where c.chargeId=readMeterRecord.chargeId) as ReceiptIO
+                                FROM readMeterRecord WHERE loginId=@loginid
                                 AND 
                                 WATERMETERNUMBERCHANGESTATE=0
                                 AND 
@@ -302,8 +303,9 @@ namespace TestAndroid.DAL
                                 waterusertypename as PriceTypeName,
                                 WATERMETERNUMBERCHANGESTATE,
                                 waterUserchargeType,
-                                Memo1
-                                 FROM readMeterRecord WHERE readMeterRecordId=@readMeterRecordId";
+                                Memo1,
+                               (select top 1 RECEIPTNO from WATERFEECHARGE c where c.chargeId=readMeterRecord.chargeId) as ReceiptIO
+                                FROM readMeterRecord WHERE readMeterRecordId=@readMeterRecordId";
 
                 var userItems = context.Sql(strSql)
                                    .Parameter("readMeterRecordId", req.readMeterRecordId)
@@ -803,7 +805,7 @@ namespace TestAndroid.DAL
 
         }
 
-        private void InsertChargeFeeInfo_Single(string readMeterRecordId)
+        private string InsertChargeFeeInfo_Single(string readMeterRecordId)
         {
             LogWrite(DateTime.Now.ToString(), "10008");
             var chargeItem = GetMeterDataByReacordID(readMeterRecordId);
@@ -852,7 +854,7 @@ namespace TestAndroid.DAL
                     .Column("CHARGEWORKERNAME", CHARGEWORKERNAME)//收费员名字
                     .Column("CHARGEDATETIME", DateTime.Now.ToString())//收费时间
                     .Column("RECEIPTPRINTCOUNT", 1)//小票打印次数：只允许打印一次，打印代表收费
-                    .Column("RECEIPTNO", "")//小票编号：收据编号（可为空）
+                    .Column("RECEIPTNO","")//小票编号：收据编号（可为空）
                     .Column("MEMO", "").Execute();
 
                 string sqlstr = "UPDATE readMeterRecord SET chargeState=3,chargeID=@chargeID,checkState=1,checkDateTime=@checkDateTime,checker='系统管理员' WHERE readMeterRecordId=@readMeterRecordId";
@@ -869,7 +871,8 @@ namespace TestAndroid.DAL
 
                     LogWrite(sqlstr, "994");
                 }
-                
+
+                return chargeID;
                 //判断是不是两块总表的分表，如果是需要修改总表的费用，找出总表的readMeterRecordId,重新执行InsertChargeFeeInfo(string readMeterRecordId)
                 //CheckBranch(readItem.readMeterRecordId);
             }
@@ -1203,11 +1206,26 @@ namespace TestAndroid.DAL
                 IsAllowUpdata = false;
                 err = "数据上传失败：用户收费失败！";
             }
+            if (!string.IsNullOrWhiteSpace(readItem.chargeID)) {
+                var chargeInfo = this.chargeDal.GetCharInfoByChargeId(readItem.chargeID);
+                if (chargeInfo != null) {
+                    retItem = new WUploadUserRes()
+                    {
+                         chargeId=chargeInfo.CHARGEID,
+                         chargeType=chargeInfo.CHARGETYPEID,
+                         hasPrint=!string.IsNullOrWhiteSpace(chargeInfo.RECEIPTNO)
+                    };
+                    return retItem;
+                }
+            }
             #endregion
             if (IsAllowUpdata)
             {
                 //InsertChargeFeeInfo(SingleUserFeeItem.readMeterRecordId);
-                InsertChargeFeeInfo_Single(SingleUserFeeItem.readMeterRecordId);
+                var chargeId=InsertChargeFeeInfo_Single(SingleUserFeeItem.readMeterRecordId);
+                retItem.chargeType = SingleUserFeeItem.chargeTypeID == 0 ? 1 : SingleUserFeeItem.chargeTypeID;
+                retItem.hasPrint = false;
+                retItem.chargeId = chargeId;
             }
             else
             {
@@ -1361,6 +1379,7 @@ namespace TestAndroid.DAL
         }
 
         #endregion
+
 
     }
 }

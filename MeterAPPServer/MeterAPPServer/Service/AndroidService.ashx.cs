@@ -118,6 +118,10 @@ namespace TestAndroid.Service
                          var SingleUserFeeItem = JsonTool.Deserialize<WSingleUserItemReq>(gson);
                          res = JsonTool.Serialize<WUploadUserRes>(AService.GetSingleFeeItemRes(SingleUserFeeItem));
                         break;
+                    case "20"://打印
+                        var printReq = JsonTool.Deserialize<PringReq>(gson);
+                        res = JsonTool.Serialize<PringRes>(AService.PrintTicks(printReq));
+                        break;
                     default:
                         break;
                 }

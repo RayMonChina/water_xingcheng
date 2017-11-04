@@ -12,11 +12,13 @@ import com.ideal.zsyy.entity.LocationInfo;
 import com.ideal.zsyy.entity.WBBItem;
 import com.ideal.zsyy.entity.WCBUserEntity;
 import com.ideal.zsyy.entity.WCBWaterChargeItem;
+import com.ideal.zsyy.request.PrintDataReq;
 import com.ideal.zsyy.request.WBBReq;
 import com.ideal.zsyy.request.WDownUserReq;
 import com.ideal.zsyy.request.WSingleUserItemReq;
 import com.ideal.zsyy.request.WUploadUserReq;
 import com.ideal.zsyy.request.WaterChargeReq;
+import com.ideal.zsyy.response.PrintDataRes;
 import com.ideal.zsyy.response.ServerDateTimeRes;
 import com.ideal.zsyy.response.WBBRes;
 import com.ideal.zsyy.response.WDownUserRes;
@@ -45,6 +47,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.text.InputType;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -125,6 +128,7 @@ public class WCBRealNewActivity extends Activity {
 		titlePopup.addAction(new ActionItem(getResources().getDrawable(R.drawable.wcb_history_24), "历史查询", 4));
 		titlePopup.addAction(new ActionItem(getResources().getDrawable(R.drawable.wcb_update_24), "重新下载", 7));
 		titlePopup.addAction(new ActionItem(getResources().getDrawable(R.drawable.wcb_upload_24), "数据上传", 5));
+		
 		// titlePopup.addAction(new
 		// ActionItem(getResources().getDrawable(R.drawable.wcb_print), "打印催费",
 		// 6));
@@ -132,6 +136,7 @@ public class WCBRealNewActivity extends Activity {
 		if (bbList != null && bbList.size() > 0) {
 			CBMonth = bbList.get(0).getCBMonth();
 		}
+		Log.i("thismonth",ThisMonth+"-"+CBMonth);
 		if (ThisMonth == CBMonth) {
 			if (Today > MeterDateTimeEnd) {
 				IsUpTimes = false;
@@ -375,7 +380,8 @@ public class WCBRealNewActivity extends Activity {
 					break;
 				case 2:// 打印
 					titlePopup.removeAction(2);
-					OPPrint();
+					//OPPrint();
+					UploadPrintData();
 					break;
 				case 3:
 					OpAdvice();
@@ -395,6 +401,9 @@ public class WCBRealNewActivity extends Activity {
 					break;
 				case 7:
 					ShowDownLoad(1, "注意：你将清除设备中本条数据并从服务器重新下载！");
+					break;
+				case 8:
+					UploadFeeClick();
 					break;
 				}
 
@@ -550,12 +559,17 @@ public class WCBRealNewActivity extends Activity {
 			if (this.userItem != null && this.userItem.getWaterUserchargeType() != null
 					&& this.userItem.getWaterUserchargeType().trim().equals("0")) {
 				if (!this.userItem.getNoteNo().startsWith("a") && !this.userItem.getNoteNo().startsWith("A")) {
-					if (userItem.getOrChaoBiaoTag() == 3) {
-						if (userItem.getIsPrint() == 1) {
-							IsShowPrint = true;
+//					if (userItem.getOrChaoBiaoTag() == 3) {
+//						if (userItem.getIsPrint() == 1) {
+//							IsShowPrint = true;
+//						}
+//					} else if (userItem.getOrChaoBiaoTag() == 1) {
+//						IsShowPrint = true;
+//					}
+					if(this.userItem.getChargeID()!=null&&this.userItem.getChargeID().length()>0){
+						if(this.userItem.getReceiptIO()==null||this.userItem.getReceiptIO().length()==0){
+							IsShowPrint=true;
 						}
-					} else if (userItem.getOrChaoBiaoTag() == 1) {
-						IsShowPrint = true;
 					}
 				}
 			}
@@ -567,6 +581,16 @@ public class WCBRealNewActivity extends Activity {
 		} else {
 			if (titlePopup.checkExists(2)) {
 				titlePopup.removeAction(2);
+			}
+		}
+		//已收费
+		if(this.userItem.getOrChaoBiaoTag()==1){
+			if (!titlePopup.checkExists(8))
+			    titlePopup.addAction(new ActionItem(getResources().getDrawable(R.drawable.wcb_update_24), "收费", 8));
+		}
+		else{
+			if(titlePopup.checkExists(8)){
+				titlePopup.removeAction(8);
 			}
 		}
 
@@ -624,7 +648,7 @@ public class WCBRealNewActivity extends Activity {
 			public void onClick(DialogInterface dialog, int which) {
 				if (operate == 1) {
 					IsUoload = 0;
-					GetSingleMeterData();
+					GetSingleMeterData(true);
 				}
 			}
 		});
@@ -1026,6 +1050,7 @@ public class WCBRealNewActivity extends Activity {
 		});
 
 	}
+	
 	private void GetSingleMeterDataOver() {
 		WSingleUserItemReq req = new WSingleUserItemReq();
 		req.setOperType("14");
@@ -1066,7 +1091,7 @@ public class WCBRealNewActivity extends Activity {
 	}
 
 	// 单条数据下载
-	private void GetSingleMeterData() {
+	private void GetSingleMeterData(final Boolean isShowTip) {
 		WSingleUserItemReq req = new WSingleUserItemReq();
 		req.setOperType("14");
 		req.setReadMeterRecordId(userItem.getReadMeterRecordId());
@@ -1088,26 +1113,6 @@ public class WCBRealNewActivity extends Activity {
 					// 上传和下载数据不一致
 					// 要判断是否上传数据
 					WCBUserEntity item = commonRes.getUserItems().get(0);
-					//IsUoload:0-直接下载；1-打印上传后下载；2-单条上传后下载；
-//					if (IsUoload != 0 ) {
-//						if(item.getCurrentMonthValue() != userItem.getCurrentMonthValue() && item.getChaoBiaoTag() != userItem.getChaoBiaoTag()){
-						//UpCount++;
-						//if (UpCount > 3) {
-//							if (IsUoload == 1) {
-//								OpUploadSingle();
-//								return;
-//							}
-//							if (IsUoload == 2) {
-//								UploadUserFeeState();
-//								return;
-							//}
-						//} else {
-							//UpCount = 0;
-							//Toast.makeText(WCBRealNewActivity.this, "上传数据出错，请重新操作！", Toast.LENGTH_SHORT).show();
-						//}
-						//return;
-//						}
-//					}
 					dbmanager.EditCustomerInfo(commonRes.getUserItems());
 
 					if (IsPrint) {
@@ -1122,11 +1127,12 @@ public class WCBRealNewActivity extends Activity {
 						//FillData(userItem);
 						BluePrint();
 					} else {
-						String ShowText=IsUoload==0?"下载成功！":IsUoload==1?"上传成功！":IsUoload==2?"收费数据已上传！":"未知错误";
-							
-						FillData(item);
+						if(isShowTip){
+							String ShowText=IsUoload==0?"下载成功！":IsUoload==1?"上传成功！":IsUoload==2?"收费数据已上传！":"未知错误";
+							Toast.makeText(WCBRealNewActivity.this,ShowText, Toast.LENGTH_SHORT).show();
+						}
 						
-						Toast.makeText(WCBRealNewActivity.this,ShowText, Toast.LENGTH_SHORT).show();
+						FillData(item);
 					}
 
 					return;
@@ -1136,6 +1142,98 @@ public class WCBRealNewActivity extends Activity {
 
 			@Override
 			public void onResponseEndErr(WSingleUserItemReq commonReq, WDownUserRes commonRes, String errmsg,
+					int responseCode) {
+				Toast.makeText(getApplicationContext(), errmsg, Toast.LENGTH_SHORT).show();
+			}
+
+		});
+	}
+	
+	private void UploadFeeClick() {
+		WSingleUserItemReq req = new WSingleUserItemReq();
+		req.setOperType("19");
+		req.setReadMeterRecordId(userItem.getReadMeterRecordId());
+
+		GsonServlet<WSingleUserItemReq, WUploadUserRes> gServlet = new GsonServlet<WSingleUserItemReq, WUploadUserRes>(
+				this);
+		gServlet.request(req, WUploadUserRes.class);
+		gServlet.setOnResponseEndListening(new OnResponseEndListening<WSingleUserItemReq, WUploadUserRes>() {
+
+			@Override
+			public void onResponseEnd(WSingleUserItemReq commonReq, WUploadUserRes commonRes, boolean result,
+					String errmsg, int responseCode) {
+			}
+
+			@Override
+			public void onResponseEndSuccess(WSingleUserItemReq commonReq, WUploadUserRes commonRes, String errmsg,
+					int responseCode) {
+				if(commonRes.getChargeId()!=null&&commonRes.getChargeId().length()>0){
+					String tip="";
+					switch(commonRes.getChargeType()){
+//						case 1:
+//							tip="已现金收费";
+//							break;
+//						case 2:
+//							tip="已POS机收费";
+//							break;
+//						case 3:
+//							tip="已冲减预收";
+//							break;
+//						case 4:
+//							tip="已银行托账收费";
+//							break;
+//						case 5:
+//							tip="已转账收费";
+//							break;
+						case 6:
+							tip="已微信收费";
+							break;
+					}
+					if(tip.length()>0){
+						Toast.makeText(WCBRealNewActivity.this, tip,Toast.LENGTH_SHORT).show();
+					}
+					GetSingleMeterData(false);
+				}
+				else{
+					Toast.makeText(WCBRealNewActivity.this, "收费失败",Toast.LENGTH_SHORT).show();
+				}
+				
+			}
+
+			@Override
+			public void onResponseEndErr(WSingleUserItemReq commonReq, WUploadUserRes commonRes, String errmsg,
+					int responseCode) {
+				Toast.makeText(getApplicationContext(), errmsg, Toast.LENGTH_SHORT).show();
+			}
+
+		});
+	}
+	
+	//上传打印数据
+	private void UploadPrintData() {
+		PrintDataReq req = new PrintDataReq();
+		req.setOperType("20");
+		req.setRecordId(this.userItem.getReadMeterRecordId());
+
+		GsonServlet<PrintDataReq, PrintDataRes> gServlet = new GsonServlet<PrintDataReq, PrintDataRes>(
+				this);
+		gServlet.request(req, PrintDataRes.class);
+		gServlet.setOnResponseEndListening(new OnResponseEndListening<PrintDataReq, PrintDataRes>() {
+			@Override
+			public void onResponseEnd(PrintDataReq commonReq, PrintDataRes commonRes, boolean result,
+					String errmsg, int responseCode) {
+
+			}
+
+			@Override
+			public void onResponseEndSuccess(PrintDataReq commonReq, PrintDataRes commonRes, String errmsg,
+					int responseCode) {
+				GetSingleMeterData(false);
+				BluePrint();
+			}
+
+			@Override
+			public void onResponseEndErr(PrintDataReq commonReq, PrintDataRes commonRes, String errmsg,
 					int responseCode) {
 				Toast.makeText(getApplicationContext(), errmsg, Toast.LENGTH_SHORT).show();
 			}
@@ -1201,7 +1299,7 @@ public class WCBRealNewActivity extends Activity {
 					// 单条上传,如果打印失败，不重新下载数据，打印成功IsPrint=0，IsPrint=1未打印
 					if (userItem.getIsPrint() != 1) {
 						IsUoload = 1;
-						GetSingleMeterData();
+						GetSingleMeterData(true);
 					} else {
 						Toast.makeText(WCBRealNewActivity.this, "上传成功", Toast.LENGTH_SHORT).show();
 						FillData(userItem);

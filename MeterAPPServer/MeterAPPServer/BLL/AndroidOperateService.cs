@@ -10,11 +10,14 @@ using TestAndroid.Models.Response;
 using TestAndroid.DAL;
 using MeterAPPServer.Models.Response;
 using MeterAPPServer.Models.Request;
+using MeterAPPServer.DAL;
+
 namespace TestAndroid.BLL
 {
     public class AndroidOperateService
     {
         CbSystemDAL cbDal = new CbSystemDAL();
+        ChargeDAL chargeDal = new ChargeDAL();
         //注册手机
         public EquipmentRes Reg(EquipmentReg req)
         {
@@ -275,9 +278,36 @@ namespace TestAndroid.BLL
             return res;
         }
 
+        public PringRes PrintTicks(PringReq req)
+        {
+            var res = new PringRes();
+            if (req == null)
+            {
+                res.isErrMsg = true;
+                res.errMsg = "打印异常";
+                return res;
+            }
+            var chargeInfo = chargeDal.GetChargeInfoByRecordId(req.recordId);
+            if (chargeInfo == null)
+            {
+                res.isErrMsg = true;
+                res.errMsg = "请先进行收费";
+                return res;
+            }
+            if (!string.IsNullOrWhiteSpace(chargeInfo.RECEIPTNO))
+            {
+                res.isErrMsg = true;
+                res.errMsg = "已打印过小票";
+                return res;
+            }
+            res.printNo = chargeDal.UpdatePrintNo(chargeInfo.CHARGEID, chargeInfo.RECEIPTPRINTCOUNT + 1);
+            return res;
+        }
+
         public void LogWrite(string res, string type)
         {
             cbDal.LogWrite(res, type);
         }
+
     }
 }

@@ -1,5 +1,8 @@
 package com.ideal.zsyy.entity;
 
+import android.R.string;
+import android.util.Printer;
+
 public class WCBUserEntity {
 
 	private int UserID;
@@ -67,6 +70,16 @@ public class WCBUserEntity {
 	private String waterUserchargeType;
 	private String waterUserTypeId;
 	private String Memo1;
+	private String ReceiptIO;
+	
+
+	public String getReceiptIO() {
+		return ReceiptIO;
+	}
+
+	public void setReceiptIO(String receiptIO) {
+		ReceiptIO = receiptIO;
+	}
 
 	public int getUserID() {
 		return UserID;

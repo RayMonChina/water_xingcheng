@@ -87,6 +87,7 @@ namespace TestAndroid.Models.Entity
         public int OrderNumber { get; set; }//抄表顺序（显示顺序）
         public string WATERMETERNUMBERCHANGESTATE { get; set; }//换表标志：0-正常，1-换表
         public string waterUserchargeType { get; set; }
+        public string ReceiptIO { get; set; }
         public string Latitude
         {
             get

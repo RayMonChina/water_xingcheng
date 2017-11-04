@@ -19,6 +19,8 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -28,7 +30,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <PlatformTarget>x86</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -72,6 +74,7 @@
     <Compile Include="BLL\SimpleLog.cs" />
     <Compile Include="DAL\BaseDAL.cs" />
     <Compile Include="DAL\CbSystemDAL.cs" />
+    <Compile Include="DAL\ChargeDAL.cs" />
     <Compile Include="LogView.aspx.cs">
       <DependentUpon>LogView.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -81,6 +84,8 @@
     </Compile>
     <Compile Include="Models\Entity\QianFeiHistoryItem.cs" />
     <Compile Include="Models\Entity\QianFeiItem.cs" />
+    <Compile Include="Models\Request\PringReq.cs" />
+    <Compile Include="Models\Response\PringRes.cs" />
     <Compile Include="Models\Request\QianFeiItemReq.cs" />
     <Compile Include="Models\Request\WSingleUserItemReq.cs" />
     <Compile Include="Global.asax.cs">

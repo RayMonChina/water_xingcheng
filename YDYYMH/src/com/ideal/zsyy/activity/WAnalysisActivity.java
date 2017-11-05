@@ -39,7 +39,7 @@ public class WAnalysisActivity extends Activity {
 
 	private Spinner spinnerBBH = null;
 	private TextView tv_yhzs = null, tv_ycyhs = null, tv_wcyhs = null, tv_sbgz = null, tv_zsl = null, tv_zfy = null,
-			tv_ysje = null, tv_wsje = null, tv_ysfyhs = null, tv_ysfsl = null;
+			tv_ysje = null, tv_wsje = null, tv_ysfyhs = null, tv_ysfsl = null,tv_wechat_amount,tv_cash_amount;
 	private RadioGroup rgDays = null;
 	private RadioButton rb_month;
 	private Button btn_back = null;
@@ -81,6 +81,9 @@ public class WAnalysisActivity extends Activity {
 		btn_back = (Button) findViewById(R.id.btn_back);
 		rb_month = (RadioButton) findViewById(R.id.rb_month);
 		tv_ysfsl = (TextView) findViewById(R.id.tv_ysfsl);
+		tv_wechat_amount=(TextView)findViewById(R.id.tv_wechat_amount);
+		tv_cash_amount=(TextView)findViewById(R.id.tv_cash_amount);
+		
 		ll_top_menu = (LinearLayout) findViewById(R.id.ll_top_menu);
 
 		if (ll_top_menu != null) {
@@ -302,6 +305,12 @@ public class WAnalysisActivity extends Activity {
 			}
 			if (tv_ysfsl != null) {
 				tv_ysfsl.setText(wItem.getYsfsl());
+			}
+			if(tv_wechat_amount!=null){
+				tv_wechat_amount.setText(wItem.getWechatAmount());
+			}
+			if(tv_cash_amount!=null){
+				tv_cash_amount.setText(wItem.getCashAmount());
 			}
 		}
 	}

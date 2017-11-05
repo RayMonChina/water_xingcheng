@@ -88,6 +88,10 @@ namespace TestAndroid.Models.Entity
         public string WATERMETERNUMBERCHANGESTATE { get; set; }//换表标志：0-正常，1-换表
         public string waterUserchargeType { get; set; }
         public string ReceiptIO { get; set; }
+        /// <summary>
+        /// 支付方式
+        /// </summary>
+        public int ChargeTypeId { get; set; }
         public string Latitude
         {
             get

@@ -13,6 +13,33 @@ public class WAnalysisItem {
 	private String ysfyhs;// 已收费用户数
 	private String qfyhs;// 欠费用户数
 	private String ysfsl;
+	private String wechatAmount;//微信支付
+	private String cashAmount;//现金支付
+	
+
+	public String getQfyhs() {
+		return qfyhs;
+	}
+
+	public void setQfyhs(String qfyhs) {
+		this.qfyhs = qfyhs;
+	}
+
+	public String getWechatAmount() {
+		return wechatAmount;
+	}
+
+	public void setWechatAmount(String wechatAmount) {
+		this.wechatAmount = wechatAmount;
+	}
+
+	public String getCashAmount() {
+		return cashAmount;
+	}
+
+	public void setCashAmount(String cashAmount) {
+		this.cashAmount = cashAmount;
+	}
 
 	public String getTotle() {
 		return totle;

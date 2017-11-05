@@ -353,6 +353,7 @@ public class WdbManager {
 			retItem.setPreMoney(cursor.getDouble(cursor.getColumnIndex("PreMoney")));
 			retItem.setReceiptIO(cursor.getString(cursor.getColumnIndex("ReceiptIO")));
 			retItem.setChargeID(cursor.getString(cursor.getColumnIndex("chargeID")));
+			retItem.setChargeTypeId(cursor.getInt(cursor.getColumnIndex("ChargeTypeId")));
 		}
 		return retItem;
 	}
@@ -412,6 +413,7 @@ public class WdbManager {
 			retItem.setPreMoney(cursor.getDouble(cursor.getColumnIndex("PreMoney")));
 			retItem.setReceiptIO(cursor.getString(cursor.getColumnIndex("ReceiptIO")));
 			retItem.setChargeID(cursor.getString(cursor.getColumnIndex("chargeID")));
+			retItem.setChargeTypeId(cursor.getInt(cursor.getColumnIndex("ChargeTypeId")));
 		}
 		return retItem;
 	}
@@ -472,6 +474,7 @@ public class WdbManager {
 			retItem.setPreMoney(cursor.getDouble(cursor.getColumnIndex("PreMoney")));
 			retItem.setReceiptIO(cursor.getString(cursor.getColumnIndex("ReceiptIO")));
 			retItem.setChargeID(cursor.getString(cursor.getColumnIndex("chargeID")));
+			retItem.setChargeTypeId(cursor.getInt(cursor.getColumnIndex("ChargeTypeId")));
 		}
 		return retItem;
 	}
@@ -556,6 +559,7 @@ public class WdbManager {
 			retItem.setPreMoney(cursor.getDouble(cursor.getColumnIndex("PreMoney")));
 			retItem.setReceiptIO(cursor.getString(cursor.getColumnIndex("ReceiptIO")));
 			retItem.setChargeID(cursor.getString(cursor.getColumnIndex("chargeID")));
+			retItem.setChargeTypeId(cursor.getInt(cursor.getColumnIndex("ChargeTypeId")));
 		}
 		return retItem;
 	}
@@ -1095,6 +1099,7 @@ public class WdbManager {
 				cValues.put("PreMoney", item.getPreMoney());
 				cValues.put("ReceiptIO", item.getReceiptIO());
 				cValues.put("chargeID", item.getChargeID());
+				cValues.put("ChargeTypeId",item.getChargeTypeId());
 				db.insert("TB_UserInfo", "UserNo", cValues);
 			}
 			db.setTransactionSuccessful();
@@ -1168,6 +1173,7 @@ public class WdbManager {
 				cValues.put("Memo1", item.getMemo1());
 				cValues.put("ReceiptIO",item.getReceiptIO());
 				cValues.put("chargeID", item.getChargeID());
+				cValues.put("ChargeTypeId",item.getChargeTypeId());
 				//cValues.put("PreMoney", item.getPreMoney());
 				db.update("TB_UserInfo", cValues, " readMeterRecordId=?",
 						new String[] { String.valueOf(item.getReadMeterRecordId()) });
@@ -1767,6 +1773,26 @@ public class WdbManager {
 					.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
 			retItem.setYsje(String.valueOf(TotalCharges));
 		}
+		//微信收费金额
+		strSql = "select sum(totalCharge)as wSum from TB_UserInfo where ('" + noteNo
+				+ "'='0' or NoteNo=?) and ChaoBiaoTag =3 and CHARGETYPEID=6";
+		cursor=db.rawQuery(strSql, new String[]{noteNo});
+		if(cursor.moveToNext()){
+			double wechatAmount=new BigDecimal(cursor.getDouble(0))
+					.setScale(2,BigDecimal.ROUND_HALF_UP).doubleValue();
+			retItem.setWechatAmount(String.valueOf(wechatAmount));
+		}
+		//现金收费金额
+		strSql = "select sum(totalCharge)as wSum from TB_UserInfo where ('" + noteNo
+				+ "'='0' or NoteNo=?) and ChaoBiaoTag =3 and CHARGETYPEID=1";
+		cursor=db.rawQuery(strSql, new String[]{noteNo});
+		if(cursor.moveToNext()){
+			double cashAmount=new BigDecimal(cursor.getDouble(0))
+					.setScale(2,BigDecimal.ROUND_HALF_UP).doubleValue();
+			retItem.setCashAmount(String.valueOf(cashAmount));
+		}
+		
+		//
 		strSql = "select sum(totalCharge)as wSum from TB_UserInfo where ('" + noteNo
 				+ "'='0' or NoteNo=?) and ChaoBiaoTag = 1 ";
 		cursor = db.rawQuery(strSql, new String[] { noteNo });
@@ -1859,6 +1885,28 @@ public class WdbManager {
 					.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
 			retItem.setYsje(String.valueOf(TotalCharges));
 		}
+		//
+		//微信收费金额
+		strSql = "select sum(totalCharge)as wSum from TB_UserInfo where ('" + noteNo
+				+ "'='0' or NoteNo=?) and ChaoBiaoTag=3 and CHARGETYPEID=6 and (ChaoBiaoDate like '%" + currDay
+				+ "%' or ChaoBiaoDate like '%" + currDay2 + "%' or ChaoBiaoDate like '%" + currDay3 + "%')";
+		cursor=db.rawQuery(strSql, new String[]{noteNo});
+		if(cursor.moveToNext()){
+			double wechatAmount=new BigDecimal(cursor.getDouble(0))
+					.setScale(2,BigDecimal.ROUND_HALF_UP).doubleValue();
+			retItem.setWechatAmount(String.valueOf(wechatAmount));
+		}
+		//现金收费金额
+		strSql = "select sum(totalCharge)as wSum from TB_UserInfo where ('" + noteNo
+				+ "'='0' or NoteNo=?) and ChaoBiaoTag=3 and CHARGETYPEID=1 and (ChaoBiaoDate like '%" + currDay
+				+ "%' or ChaoBiaoDate like '%" + currDay2 + "%' or ChaoBiaoDate like '%" + currDay3 + "%')";
+		cursor=db.rawQuery(strSql, new String[]{noteNo});
+		if(cursor.moveToNext()){
+			double cashAmount=new BigDecimal(cursor.getDouble(0))
+					.setScale(2,BigDecimal.ROUND_HALF_UP).doubleValue();
+			retItem.setCashAmount(String.valueOf(cashAmount));
+		}
+		
 		strSql = "select sum(totalCharge)as wSum from TB_UserInfo where ('" + noteNo
 				+ "'='0' or NoteNo=?) and ChaoBiaoTag=1 and (ChaoBiaoDate like '%" + currDay
 				+ "%' or ChaoBiaoDate like '%" + currDay2 + "%' or ChaoBiaoDate like '%" + currDay3 + "%')";

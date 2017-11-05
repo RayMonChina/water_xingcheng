@@ -1168,7 +1168,7 @@ public class WCBRealNewActivity extends Activity {
 			public void onResponseEndSuccess(WSingleUserItemReq commonReq, WUploadUserRes commonRes, String errmsg,
 					int responseCode) {
 				if(commonRes.getChargeId()!=null&&commonRes.getChargeId().length()>0){
-					String tip="";
+					String tip="收费成功";
 					switch(commonRes.getChargeType()){
 //						case 1:
 //							tip="已现金收费";
@@ -1193,6 +1193,7 @@ public class WCBRealNewActivity extends Activity {
 						Toast.makeText(WCBRealNewActivity.this, tip,Toast.LENGTH_SHORT).show();
 					}
 					GetSingleMeterData(false);
+					
 				}
 				else{
 					Toast.makeText(WCBRealNewActivity.this, "收费失败",Toast.LENGTH_SHORT).show();

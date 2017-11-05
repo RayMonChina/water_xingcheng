@@ -42,7 +42,7 @@ public class PrintTemplate {
 		arrList.add("污水处理费：" + userItem.getExtraCharge1() + "元\n");
 		arrList.add("金额合计：" + userItem.getTotalCharge() + "元\n");
 		//arrList.add("账户金额：" + userItem.getOweMoney() + "元\n");
-		arrList.add("交费方式：" + userItem.getPreMoney() + "元\n");//======================
+		arrList.add("交费方式：" + GetChargeType(userItem.getChargeTypeId())+ "");//======================
 		arrList.add("-----------------------\n");
 		arrList.add("收费员：" + preferencesService.getLoginInfo().get("userName").toString() + "\n");
 		arrList.add("打票时间：" + strDate + "\n");
@@ -52,5 +52,31 @@ public class PrintTemplate {
 		arrList.add("\n\r");
 
 		return (String[]) arrList.toArray(new String[arrList.size()]);
+	}
+
+	//
+	public static String GetChargeType(int chargeTypeId){
+		String retDta="";
+		switch(chargeTypeId){
+			case 1:
+				retDta="现金";
+				break;
+			case 2:
+				retDta="POS机收费";
+				break;
+			case 3:
+				retDta="冲减预收";
+				break;
+			case 4:
+				retDta="银行托收";
+				break;
+			case 5:
+				retDta="转账收费";
+				break;
+			case 6:
+				retDta="微信支付";
+				break;
+		}
+		return retDta;
 	}
 }

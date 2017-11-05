@@ -71,7 +71,15 @@ public class WCBUserEntity {
 	private String waterUserTypeId;
 	private String Memo1;
 	private String ReceiptIO;
+	private int ChargeTypeId;
 	
+	public int getChargeTypeId() {
+		return ChargeTypeId;
+	}
+
+	public void setChargeTypeId(int chargeTypeId) {
+		ChargeTypeId = chargeTypeId;
+	}
 
 	public String getReceiptIO() {
 		return ReceiptIO;

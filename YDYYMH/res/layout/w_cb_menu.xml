@@ -26,93 +26,112 @@
         </LinearLayout>
     </RelativeLayout>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" >
+        android:layout_height="fill_parent" >
 
-        <Button
-            android:id="@+id/btn_nfc"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/selector_btn_cb_menu"
-            android:gravity="center"
-            android:text="NFC标签抄表"
-            android:textColor="@color/white"
-            android:visibility="gone"
-            android:textSize="16dp" />
+            android:orientation="vertical" >
 
-        <Button
-            android:id="@+id/btn_shunxuchaobiao"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/selector_btn_cb_menu"
-            android:gravity="center"
-            android:text="顺序抄表"
-            android:textColor="@color/white"
-            android:textSize="16dp" />
+            <Button
+                android:id="@+id/btn_nfc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/selector_btn_cb_menu"
+                android:gravity="center"
+                android:text="NFC标签抄表"
+                android:textColor="@color/white"
+                android:textSize="16dp"
+                android:visibility="gone" />
 
-        <Button
-            android:id="@+id/btn_xuchao"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/selector_btn_cb_menu"
-            android:gravity="center"
-            android:text="续    抄"
-            android:textColor="@color/white"
-            android:textSize="16dp" />
+            <Button
+                android:id="@+id/btn_shunxuchaobiao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/selector_btn_cb_menu"
+                android:gravity="center"
+                android:text="顺序抄表"
+                android:textColor="@color/white"
+                android:textSize="16dp" />
 
-        <Button
-            android:id="@+id/btn_weichao"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/selector_btn_cb_menu"
-            android:gravity="center"
-            android:text="未    抄"
-            android:textColor="@color/white"
-            android:textSize="16dp" />
+            <Button
+                android:id="@+id/btn_xuchao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/selector_btn_cb_menu"
+                android:gravity="center"
+                android:text="续    抄"
+                android:textColor="@color/white"
+                android:textSize="16dp" />
 
-        <Button
-            android:id="@+id/btn_tongji"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/selector_btn_cb_menu"
-            android:gravity="center"
-            android:text="抄表统计"
-            android:textColor="@color/white"
-            android:textSize="16dp" />
-        <Button
-            android:id="@+id/btn_qianfei"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/selector_btn_cb_menu"
-            android:gravity="center"
-            android:text="历史欠费"
-            android:textColor="@color/white"
-            android:textSize="16dp" />
-        <Button
-            android:id="@+id/btn_qianfeiuser"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/selector_btn_cb_menu"
-            android:gravity="center"
-            android:text="欠费用户"
-            android:textColor="@color/white"
-            android:textSize="16dp" />
-    </LinearLayout>
+            <Button
+                android:id="@+id/btn_weichao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/selector_btn_cb_menu"
+                android:gravity="center"
+                android:text="未    抄"
+                android:textColor="@color/white"
+                android:textSize="16dp" />
+
+            <Button
+                android:id="@+id/btn_tongji"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/selector_btn_cb_menu"
+                android:gravity="center"
+                android:text="抄表统计"
+                android:textColor="@color/white"
+                android:textSize="16dp" />
+
+            <Button
+                android:id="@+id/btn_qianfei"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/selector_btn_cb_menu"
+                android:gravity="center"
+                android:text="历史欠费"
+                android:textColor="@color/white"
+                android:textSize="16dp" />
+
+            <Button
+                android:id="@+id/btn_qianfeiuser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/selector_btn_cb_menu"
+                android:gravity="center"
+                android:text="欠费用户"
+                android:textColor="@color/white"
+                android:textSize="16dp" />
+
+            <Button
+                android:id="@+id/btn_wechat_pay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/selector_btn_cb_menu"
+                android:gravity="center"
+                android:text="微信支付查询"
+                android:textColor="@color/white"
+                android:textSize="16dp" />
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

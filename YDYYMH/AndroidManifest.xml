@@ -513,8 +513,12 @@
             android:name="com.ideal.zsyy.activity.WQianfeiHistoryActivity"
             android:screenOrientation="portrait" >
         </activity>
-         <activity
+        <activity
             android:name="com.ideal.zsyy.activity.WQianfeiHistoryResultActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ideal.zsyy.activity.WCBWeChatActivity"
             android:screenOrientation="portrait" >
         </activity>
         

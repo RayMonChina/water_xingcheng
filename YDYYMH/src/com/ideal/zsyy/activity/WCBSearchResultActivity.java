@@ -65,7 +65,7 @@ public class WCBSearchResultActivity extends Activity {
 	
 	private void InitData()
 	{
-		userList=dbManager.SearchResults(op, keywords,NoteNo,chaobiaotag);
+		userList=dbManager.SearchResults(op, keywords,NoteNo,chaobiaotag,0);
 		if(userList==null||userList.size()==0)
 		{
 			Toast.makeText(WCBSearchResultActivity.this,"没有查询到数据", Toast.LENGTH_SHORT).show();

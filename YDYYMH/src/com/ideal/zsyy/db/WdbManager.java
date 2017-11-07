@@ -565,7 +565,7 @@ public class WdbManager {
 	}
 
 	// 获取查询结果
-	public List<WCBUserEntity> SearchResults(int operate, String keywords, String noteNo, int chaobiaotag) {
+	public List<WCBUserEntity> SearchResults(int operate, String keywords, String noteNo, int chaobiaotag,int chargeType) {
 		List<WCBUserEntity> retList = new ArrayList<WCBUserEntity>();
 		String strWhere = "";
 		if (keywords != null && keywords.trim().length() > 0) {
@@ -595,6 +595,9 @@ public class WdbManager {
 		if (!noteNo.equalsIgnoreCase("0")) {
 			strWhere += " and NoteNo='" + noteNo + "'";
 		}
+		if(chargeType>0){
+			strWhere+=" and ChargeTypeId="+chargeType+" and (length(ReceiptIO)==0 or ReceiptIO is null)";
+		}
 		WCBUserEntity retItem = null;
 		String strSql = "select * from TB_UserInfo where 1=1 " + strWhere + " order by OrderNumber";
 		Cursor cursor = db.rawQuery(strSql, null);
@@ -621,6 +624,7 @@ public class WdbManager {
 			retItem.setShouFei(cursor.getDouble(cursor.getColumnIndex("ShouFei")));
 			retItem.setReadMeterRecordId(cursor.getString(cursor.getColumnIndex("readMeterRecordId")));
 			retItem.setAlreadyUpload(cursor.getInt(cursor.getColumnIndex("alreadyUpload")));
+			retItem.setReceiptIO(cursor.getString(cursor.getColumnIndex("ReceiptIO")));
 			retList.add(retItem);
 		}
 		return retList;

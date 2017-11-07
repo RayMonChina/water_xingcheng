@@ -1,6 +1,9 @@
 package com.ideal.zsyy.adapter;
 
 import java.util.List;
+
+import org.xbill.DNS.tests.primary;
+
 import com.jijiang.wtapp.R;
 import com.ideal.zsyy.activity.WCBRealNewActivity;
 import com.ideal.zsyy.entity.WCBUserEntity;
@@ -100,7 +103,6 @@ public class WUserSearchNewAdapter extends BaseAdapter {
 			int colors= context.getResources().getColor(R.color.red);
 			viewHolder.getTv_chaobiaotag().setTextColor(colors);
 			viewHolder.getLyContainer().setBackgroundColor(context.getResources().getColor(R.color.white));
-			
 		}
 		else if(cbTag==1){
 			viewHolder.getTv_chaobiaotag().setText("已抄表"+scText);
@@ -110,7 +112,7 @@ public class WUserSearchNewAdapter extends BaseAdapter {
 		}
 		else if(cbTag==3){
 			String sp="";
-			if(sPrint==1)
+			if(ptEntity.getReceiptIO()==null||ptEntity.getReceiptIO().length()==0)
 			{
 				sp="-未打印";
 			}

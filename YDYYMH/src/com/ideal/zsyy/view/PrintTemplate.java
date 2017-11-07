@@ -42,7 +42,7 @@ public class PrintTemplate {
 		arrList.add("污水处理费：" + userItem.getExtraCharge1() + "元\n");
 		arrList.add("金额合计：" + userItem.getTotalCharge() + "元\n");
 		//arrList.add("账户金额：" + userItem.getOweMoney() + "元\n");
-		arrList.add("交费方式：" + GetChargeType(userItem.getChargeTypeId())+ "");//======================
+		arrList.add("交费方式：" + GetChargeType(userItem.getChargeTypeId())+ "\n");//======================
 		arrList.add("-----------------------\n");
 		arrList.add("收费员：" + preferencesService.getLoginInfo().get("userName").toString() + "\n");
 		arrList.add("打票时间：" + strDate + "\n");

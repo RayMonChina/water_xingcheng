@@ -3,6 +3,7 @@ package com.ideal.zsyy.view;
 import com.ideal.zsyy.activity.WAnalysisActivity;
 import com.ideal.zsyy.activity.WCBInOrderActivity;
 import com.ideal.zsyy.activity.WCBRealNewActivity;
+import com.ideal.zsyy.activity.WCBWeChatActivity;
 import com.ideal.zsyy.activity.WCBWeiChaoActivity;
 import com.ideal.zsyy.activity.WNFCTagActivity;
 import com.ideal.zsyy.activity.WQianfeiActivity;
@@ -18,7 +19,7 @@ import android.widget.Button;
 public class WCBMenuView extends BaseLayout {
 
 	private Context _context;
-	Button btn_nfc,btn_shuxu,btn_xuchao,btn_weichao,btn_tongji,btn_qianfei,btn_qianfeiuser;
+	Button btn_nfc,btn_shuxu,btn_xuchao,btn_weichao,btn_tongji,btn_qianfei,btn_qianfeiuser,btn_wechat_pay;
 	private PreferencesService preService;
 	public WCBMenuView(Context context) {
 		super(context,R.layout.w_cb_menu);
@@ -37,6 +38,7 @@ public class WCBMenuView extends BaseLayout {
 		 btn_tongji=(Button)this.findViewById(R.id.btn_tongji);
 		 btn_qianfei=(Button)this.findViewById(R.id.btn_qianfei);
 		 btn_qianfeiuser=(Button)this.findViewById(R.id.btn_qianfeiuser);
+		 btn_wechat_pay=(Button)this.findViewById(R.id.btn_wechat_pay);
 		btn_nfc.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -99,6 +101,15 @@ public class WCBMenuView extends BaseLayout {
 			public void onClick(View v) {
 				Intent intentQainfeiUser=new Intent(_context,WQianfeiActivity.class);
 				_context.startActivity(intentQainfeiUser);
+			}
+		});
+		btn_wechat_pay.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent weChat=new Intent(_context,WCBWeChatActivity.class);
+				_context.startActivity(weChat);
 			}
 		});
 	}

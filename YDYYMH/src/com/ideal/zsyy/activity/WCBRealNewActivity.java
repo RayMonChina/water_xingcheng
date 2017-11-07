@@ -379,9 +379,10 @@ public class WCBRealNewActivity extends Activity {
 					OPFaultReport();
 					break;
 				case 2:// 打印
-					titlePopup.removeAction(2);
+					//titlePopup.removeAction(2);
 					//OPPrint();
-					UploadPrintData();
+					
+					BluePrint();
 					break;
 				case 3:
 					OpAdvice();
@@ -586,7 +587,7 @@ public class WCBRealNewActivity extends Activity {
 		//已收费
 		if(this.userItem.getOrChaoBiaoTag()==1){
 			if (!titlePopup.checkExists(8))
-			    titlePopup.addAction(new ActionItem(getResources().getDrawable(R.drawable.wcb_update_24), "收费", 8));
+			    titlePopup.addAction(new ActionItem(getResources().getDrawable(R.drawable.wcb_update_24), "现金收费", 8));
 		}
 		else{
 			if(titlePopup.checkExists(8)){
@@ -986,12 +987,7 @@ public class WCBRealNewActivity extends Activity {
 			super.handleMessage(msg);
 			switch (msg.what) {
 			case 1:
-				dbmanager.ChangePrintState(0, userItem.getReadMeterRecordId());
-				//IsPrint=false;
-				FillData(userItem);
-				// 改变打印状态
-				// userItem.setIsPrint(0);
-				// dbmanager.UpdateUserItem(userItem);
+				UploadPrintData();
 				break;
 			default:
 				titlePopup.addAction(new ActionItem(getResources().getDrawable(R.drawable.wcb_print), "打印小票", 2));
@@ -1150,6 +1146,23 @@ public class WCBRealNewActivity extends Activity {
 	}
 	
 	private void UploadFeeClick() {
+		AlertDialog.Builder builder = new AlertDialog.Builder(WCBRealNewActivity.this);
+		builder.setTitle("确认现金收费吗？");
+		builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int which) {
+				CashFeeClick();
+			}
+		});
+
+		builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int which) {
+			}
+
+		});
+		builder.create().show();
+	}
+	
+	private void CashFeeClick(){
 		WSingleUserItemReq req = new WSingleUserItemReq();
 		req.setOperType("19");
 		req.setReadMeterRecordId(userItem.getReadMeterRecordId());
@@ -1230,7 +1243,7 @@ public class WCBRealNewActivity extends Activity {
 			public void onResponseEndSuccess(PrintDataReq commonReq, PrintDataRes commonRes, String errmsg,
 					int responseCode) {
 				GetSingleMeterData(false);
-				BluePrint();
+				
 			}
 
 			@Override

@@ -564,7 +564,7 @@ namespace TestAndroid.DAL
                             else
                             {
                                 sbsql.AppendFormat("chargeState='{0}',", 1);
-                                sbsql.AppendFormat("checkState='{0}',", 0);
+                                sbsql.AppendFormat("checkState='{0}',", 1);
                                 sbsql.AppendFormat("checkDateTime='{0}',", DateTime.Now.ToString());
                                 // sbsql.AppendFormat("checker='{0}',", string.IsNullOrEmpty(req.checker) ? "admin" : req.checker);
                             }

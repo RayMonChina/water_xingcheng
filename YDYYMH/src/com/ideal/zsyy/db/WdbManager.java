@@ -596,7 +596,7 @@ public class WdbManager {
 			strWhere += " and NoteNo='" + noteNo + "'";
 		}
 		if(chargeType>0){
-			strWhere+=" and ChargeTypeId="+chargeType+" and (length(ReceiptIO)==0 or ReceiptIO is null)";
+			strWhere+=" and ChargeTypeId="+chargeType;
 		}
 		WCBUserEntity retItem = null;
 		String strSql = "select * from TB_UserInfo where 1=1 " + strWhere + " order by OrderNumber";

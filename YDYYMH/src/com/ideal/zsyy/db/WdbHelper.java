@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class WdbHelper extends SQLiteOpenHelper {
 
-	private static final int DATABASE_VERSION = 7;
+	private static final int DATABASE_VERSION = 8;
 	private static String DATABASE_NAME = "w_db";
 	public WdbHelper(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -80,9 +80,9 @@ public class WdbHelper extends SQLiteOpenHelper {
 				"[OrOweFee] Numeric(12,3), [OrPreMoney] Numeric(12,3), [Latitude] Real, [Longitude] Real, " +
 				"[alreadyUpload] TINYINT, [IsReverse] INT NOT NULL, [StepPrice] NVARCHAR(100), [ExtraPrice] NVARCHAR(100), " +
 				"[IsSummaryMeter] INT, [WaterMeterParentID] varchar(50), [OrderNumber] int, [WaterFixValue] NUMBER(12, 3), " +
-				"[NFCTag] NVARCHAR(100), [PianNo] NVARCHAR(30), [AreaNo] NVARCHAR(30), [DuanNo] NVARCHAR(30), [avePrice] REAL," +
-				" [extraChargePrice1] REAL, [extraCharge1] REAL, [extraChargePrice2] REAL, [extraCharge2] REAL, [extraTotalCharge] REAL, " +
-				"[TotalCharge] REAL, [OVERDUEMONEY] REAL, [ReadMeterRecordYear] INT, [ReadMeterRecordMonth] INT, " +
+				"[NFCTag] NVARCHAR(100), [PianNo] NVARCHAR(30), [AreaNo] NVARCHAR(30), [DuanNo] NVARCHAR(30), [avePrice] Numeric(10,3)," +
+				" [extraChargePrice1] Numeric(10,3), [extraCharge1] Numeric(10,3), [extraChargePrice2] Numeric(10,3), [extraCharge2] Numeric(10,3), [extraTotalCharge] Numeric(10,3), " +
+				"[TotalCharge] Numeric(10,3), [OVERDUEMONEY] Numeric(10,3), [ReadMeterRecordYear] INT, [ReadMeterRecordMonth] INT, " +
 				"[WaterMeterPositionName] nvarchar(50), [checkState] nvarchar(20), [checkDateTime] NVARCHAR(20), [checker] NVARCHAR(20), " +
 				"[chargeID] NVARCHAR(50),waterUserchargeType varchar(10),waterUserTypeId varchar(50),Memo1 varchar(300),ReceiptIO varchar(50),ChargeTypeId int);";
 		db.execSQL(strSql);

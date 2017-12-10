@@ -474,12 +474,16 @@ namespace TestAndroid.DAL
             string waterUserchargeType = readItem.waterUserchargeType;
 
             string ClientChargeState = req.chargeState;
-            if (!req.waterMeterEndNumber.Equals(readItem.CurrentMonthValue))
+            //if (!req.waterMeterEndNumber.Equals(readItem.CurrentMonthValue))
+            //{
+            //    if (req.chargeState.Equals("1") && readItem.ChaoBiaoTag.Equals("0"))
+            //    {
+            //        IsChaoBiao = true;
+            //    }
+            //}
+            if (req.chargeState.Equals("1") && readItem.ChaoBiaoTag.Equals("0"))
             {
-                if (req.chargeState.Equals("1") && readItem.ChaoBiaoTag.Equals("0"))
-                {
-                    IsChaoBiao = true;
-                }
+                IsChaoBiao = true;
             }
             if (req.Phone != null)
             {

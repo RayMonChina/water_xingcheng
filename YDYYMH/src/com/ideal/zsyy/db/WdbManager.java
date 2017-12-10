@@ -1764,7 +1764,10 @@ public class WdbManager {
 				+ "'='0' or NoteNo=?)  and ChaoBiaoTag>0";
 		cursor = db.rawQuery(strSql, new String[] { noteNo });
 		if (cursor.moveToNext()) {
-			retItem.setZfy(cursor.getString(0));
+			double totle=cursor.getDouble(0);
+			double wechatAmount=new BigDecimal(totle)
+					.setScale(2,BigDecimal.ROUND_HALF_UP).doubleValue();
+			retItem.setZfy(String.valueOf(wechatAmount));
 		}
 		// 由两个总表带的分户的水量产生的费用
 		double BranchMoney = GetBtanchMoney(noteNo);
@@ -1801,7 +1804,8 @@ public class WdbManager {
 				+ "'='0' or NoteNo=?) and ChaoBiaoTag = 1 ";
 		cursor = db.rawQuery(strSql, new String[] { noteNo });
 		if (cursor.moveToNext()) {
-			retItem.setWsje(cursor.getString(0));
+			double wsje=new BigDecimal(cursor.getDouble(0)).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+			retItem.setWsje(String.valueOf(wsje));
 		}
 		// 已收费水量
 		strSql = "select sum(CurrMonthWNum)as wSum from TB_UserInfo where ('" + noteNo
@@ -1876,7 +1880,9 @@ public class WdbManager {
 				+ "%' or ChaoBiaoDate like '%" + currDay2 + "%' or ChaoBiaoDate like '%" + currDay3 + "%')";
 		cursor = db.rawQuery(strSql, new String[] { noteNo });
 		if (cursor.moveToNext()) {
-			retItem.setZfy(cursor.getString(0));
+			double dayCharege=new BigDecimal(cursor.getDouble(0))
+			.setScale(2,BigDecimal.ROUND_HALF_UP).doubleValue();
+			retItem.setZfy(String.valueOf(dayCharege));
 		}
 
 		double BranchMoney = GetBtanchMoney(noteNo);
@@ -1916,7 +1922,9 @@ public class WdbManager {
 				+ "%' or ChaoBiaoDate like '%" + currDay2 + "%' or ChaoBiaoDate like '%" + currDay3 + "%')";
 		cursor = db.rawQuery(strSql, new String[] { noteNo });
 		if (cursor.moveToNext()) {
-			retItem.setWsje(cursor.getString(0));
+			double dayWsje=new BigDecimal(cursor.getDouble(0))
+					.setScale(2,BigDecimal.ROUND_HALF_UP).doubleValue();
+			retItem.setWsje(String.valueOf(dayWsje));
 		}
 		// 已收费水量
 		strSql = "select sum(CurrMonthWNum)as wSum from TB_UserInfo where ('" + noteNo

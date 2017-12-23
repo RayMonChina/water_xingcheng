@@ -237,13 +237,17 @@ namespace TestAndroid.DAL
                                 AND r.readMeterRecordMonth=@cbMonth
                                 and r.meterReadingNO=@meterReadingNO
                                 AND r.totalCharge>=0
-                                ORDER BY ordernumber ASC";
-
+                                ";
+                if (req.ChargeType > 0) {
+                    strSql += " and c.CHARGETYPEID=@chargeType";
+                }
+                strSql += " ORDER BY ordernumber ASC";
                 var userItems = context.Sql(strSql)
                                    .Parameter("loginid", req.loginid)
                                    .Parameter("cbYear", req.cbYear)
                                    .Parameter("cbMonth", req.cbMonth)
                                    .Parameter("meterReadingNO", req.meterReadingNO)
+                                   .Parameter("chargeType",req.ChargeType)
                                    .QueryMany<WUserItem>();
 
                 WUserItemRes res = new WUserItemRes();

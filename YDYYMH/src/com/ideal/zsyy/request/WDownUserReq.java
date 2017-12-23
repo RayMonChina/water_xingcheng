@@ -8,6 +8,16 @@ public class WDownUserReq extends CommonReq {
 	private String cbYear;
 	private String cbMonth;
 	private String meterReadingNO;
+	private int ChargeType;
+	
+
+	public int getChargeType() {
+		return ChargeType;
+	}
+
+	public void setChargeType(int chargeType) {
+		ChargeType = chargeType;
+	}
 
 	public String getLoginid() {
 		return loginid;

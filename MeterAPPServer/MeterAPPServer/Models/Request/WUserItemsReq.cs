@@ -14,6 +14,7 @@ namespace TestAndroid.Models.Request
         public string loginid { get; set; }
         public string cbYear { get; set; }
         public string cbMonth { get; set; }
+        public int ChargeType { get; set; }//支付类型
         public string meterReadingNO { get; set; }
     }
 }

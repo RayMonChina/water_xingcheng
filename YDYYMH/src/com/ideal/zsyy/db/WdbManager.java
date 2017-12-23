@@ -597,6 +597,9 @@ public class WdbManager {
 		}
 		if(chargeType>0){
 			strWhere+=" and ChargeTypeId="+chargeType;
+			if(chargeType==6&&keywords != null && keywords.trim().length() > 0){
+				strWhere += " and (UserNo like'%" + keywords + "%' or UserFName like '%"+keywords+"%')";
+			}
 		}
 		WCBUserEntity retItem = null;
 		String strSql = "select * from TB_UserInfo where 1=1 " + strWhere + " order by OrderNumber";

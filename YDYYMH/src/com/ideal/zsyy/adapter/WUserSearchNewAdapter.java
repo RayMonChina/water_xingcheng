@@ -115,6 +115,8 @@ public class WUserSearchNewAdapter extends BaseAdapter {
 			if(ptEntity.getReceiptIO()==null||ptEntity.getReceiptIO().length()==0)
 			{
 				sp="-未打印";
+			}else{
+				sp="-已打印";
 			}
 			viewHolder.getTv_chaobiaotag().setText("已收费"+scText+sp);
 			viewHolder.getLyContainer().setBackgroundColor(context.getResources().getColor(R.color.wcb_bg_already_fee));
